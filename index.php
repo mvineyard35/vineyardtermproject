@@ -22,6 +22,8 @@
             <h3>Images for project</h3>
         <a href="/Graphic/layout.png"><img src="/Graphic/layout.png"></a>
         <a href = "/Graphic/database.png"><img src="/Graphic/database.png"></a>
+        <!--<a href="/termProject/Graphic/layout.png"><img src="/termProject/Graphic/layout.png"></a>
+        <a href = "/termProject/Graphic/database.png"><img src="/termProject/Graphic/database.png"></a>-->
         </div>
     </body>
 </html>
