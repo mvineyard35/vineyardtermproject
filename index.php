@@ -15,7 +15,7 @@
     <body>
     <div class = "nav">
             <div id = "buttons">
-                <button><a href = "/readMe.html">Read Me</a></button> | <button><a href = "https://vineyardtermproject.herokuapp.com/">Website</a></button>
+                <button><a href = "/readMe">Read Me</a></button> | <button><a href = "https://vineyardtermproject.herokuapp.com/">Website</a></button>
             </div>
         </div>
         <div class = "images">
