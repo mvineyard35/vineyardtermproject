@@ -1,0 +1,41 @@
+body {
+    background-color: honeydew;
+}
+h1 {
+    margin: auto;
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+.nav {
+    background-color: olivedrab;
+    height: 4vw;
+    min-height: 4em;
+    position: relative; 
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+button {
+    background-color: lightgray;
+    border: 2px solid black;
+    margin: 2em;
+    min-width: 5em;
+}
+#buttons {
+    position:absolute;
+    bottom: 0;
+}
+.images {
+    width: 50vw;
+    margin: auto;
+    text-align: center;
+}
+
+img {
+    border: 1px solid black;
+    margin: 5em;
+    height: 5em;
+}
