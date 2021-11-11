@@ -15,13 +15,13 @@
     <body>
     <div class = "nav">
             <div id = "buttons">
-                <button><a href = "/readMe">Read Me</a></button> | <button><a href = "https://vineyardtermproject.herokuapp.com/">Website</a></button>
+                <button><a href = "readME.html">Read Me</a></button> | <button><a href = "https://vineyardtermproject.herokuapp.com/">Website</a></button>
             </div>
         </div>
         <div class = "images">
             <h3>Images for project</h3>
-        <a href="https://vineyardtermproject.herokuapp.com/termProject/Graphic/layout.png"><img src="https://vineyardtermproject.herokuapp.com/termProject/Graphic/layout.png"></a>
-        <a href = "https://vineyardtermproject.herokuapp.com/termProject/Graphic/database.png"><img src="https://vineyardtermproject.herokuapp.com/termProject/Graphic/database.png"></a>
+        <a href="/Graphic/layout.png"><img src="/Graphic/layout.png"></a>
+        <a href = "/Graphic/database.png"><img src="/Graphic/database.png"></a>
         </div>
     </body>
 </html>
