@@ -51,8 +51,8 @@
         <div class = "images">
             <h3>Images for project</h3>
         
-        <a href="/termProject/Graphic/layout.png"><img src="/termProject/Graphic/layout.png"></a>
-        <a href = "/termProject/Graphic/database.png"><img src="/termProject/Graphic/database.png"></a>
+        <a href="https://vineyardtermproject.herokuapp.com/Graphic/layout.png"><img src="https://vineyardtermproject.herokuapp.com/Graphic/layout.png"></a>
+        <a href = "https://vineyardtermproject.herokuapp.com/Graphic/database.png"><img src="https://vineyardtermproject.herokuapp.com/Graphic/database.png"></a>
         </div>
         <?php 
             if($studentList === false) {
