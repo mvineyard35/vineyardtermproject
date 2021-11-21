@@ -17,9 +17,9 @@
         include 'createDatabase.php';
         include 'drop.php';
 
-        $studentList = mysqli_query($db, "SELECT * FROM student");
-        $destinationList = mysqli_query($db, "SELECT * FROM destination");
-        $transportationList = mysqli_query($db, "SELECT * FROM transportation");
+        //$studentList = mysqli_query($db, "SELECT * FROM student");
+        //$destinationList = mysqli_query($db, "SELECT * FROM destination");
+        //$transportationList = mysqli_query($db, "SELECT * FROM transportation");
 
         ?>
     <div class = "nav">
