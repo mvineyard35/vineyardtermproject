@@ -17,10 +17,10 @@
         $db = mysqli_connect('jtb9ia3h1pgevwb1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', 'p081dv8hvgthri1x', 'djo0l25dt7qekz8f', 'zktddrg0kdg1cz31');
         //populate student table
         $dbS = "INSERT INTO student (student_name, graduation_date, attending) VALUES
-        ('Steve Bollick', '2022-06-01', 'true'),
-        ('Marie Pollick', '2022-06-01', 'false'),
-        ('Marcus Arellius', '2022-06-01', 'true'),
-        ('Danielle Goodwin', '2022-06-01', 'true')";
+        ('Steve Bollick', '2022-06-01', true),
+        ('Marie Pollick', '2022-06-01', false),
+        ('Marcus Arellius', '2022-06-01', true),
+        ('Danielle Goodwin', '2022-06-01', true)";
         //populate destination table
         $dbL = "INSERT INTO destination (hotel, s_id) VALUES
         ('Hilton', (SELECT student_id FROM student WHERE student_name = 'Steve Bollick')),
@@ -75,7 +75,12 @@
                         echo "<td>" .$studentArray['student_id'] ."</td>";
                         echo "<td>" .$studentArray['student_name'] ."</td>";
                         echo "<td>" .$studentArray['graduation_date'] ."</td>";
-                        echo "<td>" .$studentArray['attending'] ."</td>";
+                        if($studentArray['attending'] === '1') {
+                            echo "<td>" ."yes" ."</td>";
+                        }
+                        else {
+                            echo "<td>" ."no" ."</td>";
+                        }
                         echo "</tr>";
                     }
                 
