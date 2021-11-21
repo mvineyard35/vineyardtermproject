@@ -39,3 +39,9 @@ img {
     margin: 5em;
     height: 5em;
 }
+table {
+    margin: auto;
+    width: 30vw;
+    min-width: 30em;
+    border: 1px solid black;
+}
