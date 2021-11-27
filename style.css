@@ -9,7 +9,7 @@ p {
     text-align: center;
 }
 .nav {
-    background-color: lightskyblue;
+    background-color: gray;
     height: 4vw;
     min-height: 4em;
     position: relative; 
