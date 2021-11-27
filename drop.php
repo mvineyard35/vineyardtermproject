@@ -16,7 +16,6 @@
     $db->query($dropTransportation);
     $db->query($dropLocation);
     $db->query($dropStudents);
+
+    header('location:index.php');
 ?>
-<a href = "index.php">Back</a>
-</body>
-</html>

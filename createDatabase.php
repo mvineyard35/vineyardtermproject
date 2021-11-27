@@ -39,9 +39,7 @@
     $db->query($addLocConstraint);
     $db->query($alterTransport);
     $db->query($addTranConstraint);
+
+    header('location:index.php');
     
 ?>
-
-<a href = "index.php">Back</a>
-</body>
-</html>

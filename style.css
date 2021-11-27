@@ -9,7 +9,7 @@ p {
     text-align: center;
 }
 .nav {
-    background-color: olivedrab;
+    background-color: lightskyblue;
     height: 4vw;
     min-height: 4em;
     position: relative; 
@@ -47,5 +47,11 @@ table {
 }
 h2 {
     margin: auto;
+    text-align: center;
+}
+h3 {
+    text-align: left;
+}
+.tables {
     text-align: center;
 }
