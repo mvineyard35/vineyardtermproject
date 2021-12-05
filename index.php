@@ -15,6 +15,7 @@
     <body>
         <?php
         $db = mysqli_connect('jtb9ia3h1pgevwb1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', 'p081dv8hvgthri1x', 'djo0l25dt7qekz8f', 'zktddrg0kdg1cz31');
+        //$db = mysqli_connect('localhost', 'root', 'mysql', 'prjterm');
         //populate student table
         //attending will be radio buttons
         //or it will be the date input
@@ -41,7 +42,9 @@
         $db->query($dbS);
         $db->query($dbL);
         $db->query($dbT);
-
+        function displayMessage($msg, $color) {
+            echo "<hr /><strong style='color:" . $color . ";'>" . $msg . "</strong><hr />";
+         }
         $studentList = mysqli_query($db, "SELECT * FROM student");
         $destinationList = mysqli_query($db, "SELECT * FROM destination");
         $transportationList = mysqli_query($db, "SELECT * FROM transportation");
@@ -50,7 +53,7 @@
         }
          
         if(isset($_POST['btn-submit'])) {
-            $name = $_POST['name'];
+            $name = $mysqli -> real_escape_string($_POST['name']);
             $date = $_POST['gradDate'];
             $attending = $_POST['opt-attending'];
             if($attending == 'yes') {
@@ -61,14 +64,75 @@
             }
             $hotel = $_POST['lst-hotel'];
             $method = $_POST['chk-method'];
+            
 
+            $sql = "INSERT INTO student (student_name, graduation_date, attending) VALUES (?,?,?)";
+            //set up prepared statement
+            if($stmt = $db->prepare($sql)) {
+                //pass the parameters
+                $stmt->bind_param('sss', $name, $date, $attending);
+                if($stmt->errno) {
+                   displayMessage("stmt prepare() had an error", "red");
+                }
+                //execute query
+                $stmt->execute();
+                if($stmt->errno) {
+                    displayMessage("Could not execute prepared statement", "red");
+                }
+                //free results
+                $stmt->free_result();
+                //close statement
+                $stmt->close();
+            }
+            
+            $sid = mysqli_query($db, "SELECT student_id FROM student WHERE student_name = '$name'");
+            $idArray = $sid->fetch_array();
+            $sql2 = "INSERT INTO destination (hotel, s_id) VALUES (?,?)";
+            //set up prepared statement
+            if($stmt = $db->prepare($sql2)) {
+                //pass the parameters
+                $stmt->bind_param('si', $hotel, $idArray['student_id']);
+                if($stmt->errno) {
+                   displayMessage("stmt prepare() had an error", "red");
+                }
+                //execute query
+                $stmt->execute();
+                if($stmt->errno) {
+                    displayMessage("Could not execute prepared statement", "red");
+                }
+                //free results
+                $stmt->free_result();
+                //close statement
+                $stmt->close();
+            }
+            $sql3 = "INSERT INTO transportation (method, t_id) VALUES (?,?)";
+            //set up prepared statement
+            if($stmt = $db->prepare($sql3)) {
+                //pass the parameters
+                $stmt->bind_param('si', $method, $idArray['student_id']);
+                if($stmt->errno) {
+                   displayMessage("stmt prepare() had an error", "red");
+                }
+                //execute query
+                $stmt->execute();
+                if($stmt->errno) {
+                    displayMessage("Could not execute prepared statement", "red");
+                }
+                //free results
+                $stmt->free_result();
+                //close statement
+                $stmt->close();
+                header("location:index.php");
+            }
+            
+            /*
            $addS =  mysqli_query($db, "INSERT INTO student (student_name, graduation_date, attending) VALUES ('$name', '$date', '$attending')");
            $addD =  mysqli_query($db, "INSERT INTO destination (hotel, s_id) VALUES ('$hotel', (SELECT student_id FROM student WHERE student_name = '$name'))");
            $addM =  mysqli_query($db, "INSERT INTO transportation (method, t_id) VALUES ('$method', (SELECT student_id FROM student WHERE student_name = '$name'))");
 
             if($addM) {
                 header("location:index.php");
-            }
+            } */
         }
         
 
@@ -76,7 +140,7 @@
         ?>
     <div class = "nav">
             <div id = "buttons">
-                <button><a href = "readME.html">Read Me</a></button> | <button><a href = "https://vineyardtermproject.herokuapp.com/">Website</a></button> | <button><a href = "drop.php">Drop tables</a></button> | <button><a href = "createDatabase.php">Create</a></button>
+                <button><a href = "readME.html">Read Me</a></button> | <button><a href = "https://vineyardtermproject.herokuapp.com/">Website</a></button> | <button><a href = "drop.php">Drop tables</a></button> | <button><a href = "createDatabase.php">Create</a></button> | <button><a href= "procedure.php">Procedure</a></button>
             </div>
         </div>
         <div class = "images">
